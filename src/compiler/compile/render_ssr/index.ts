@@ -14,8 +14,16 @@ export default function ssr(
 	component: Component,
 	options: CompileOptions
 ): {js: Node[]; css: CssResult} {
-  console.log(JSON.stringify(options, null, 2));
-  console.log(JSON.stringify(component, null, 2))
+
+
+	// console.log(component);
+	// console.log(options);
+
+	// console.log(component.elements.map(el => console.log(el.attributes)));
+
+//   console.log(JSON.stringify(options, null, 2));
+//   console.log(JSON.stringify(component, null, 2))
+
 	const renderer = new Renderer({
 		name: component.name
 	});
@@ -43,6 +51,7 @@ export default function ssr(
 	const slots = uses_slots ? b`let $$slots = @compute_slots(#slots);` : null;
 
 	const reactive_stores = component.vars.filter(variable => variable.name[0] === '$' && variable.name[1] !== '$');
+
 	const reactive_store_subscriptions = reactive_stores
 		.filter(store => {
 			const variable = component.var_lookup.get(store.name.slice(1));
@@ -138,6 +147,8 @@ export default function ssr(
 	});
 
 	const instance_javascript = component.extract_javascript(component.ast.instance);
+
+	// console.log(JSON.stringify(instance_javascript, null, 2));
 
 	// TODO only do this for props with a default value
 	const parent_bindings = instance_javascript

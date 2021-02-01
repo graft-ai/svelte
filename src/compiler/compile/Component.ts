@@ -123,6 +123,21 @@ export default class Component {
 			module: ast.module
 		};
 
+		if (name == 'Blah' || name === 'Something') {
+
+			ast.html.children.map(child => {
+
+				console.log(child);
+
+				if (child.attributes) {
+					child.attributes.map(attr => {
+						console.log(JSON.stringify(attr.value, null, 2));
+					})
+				}
+			});
+			// console.log(ast.instance.content.body);
+		}
+
 		this.file =
 			compile_options.filename &&
 			(typeof process !== 'undefined'
