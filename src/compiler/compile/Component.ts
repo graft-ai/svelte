@@ -125,6 +125,8 @@ export default class Component {
 
 		if (name == 'Blah' || name === 'Something') {
 
+			console.log(ast.css);
+			
 			ast.html.children.map(child => {
 
 				console.log(child);
