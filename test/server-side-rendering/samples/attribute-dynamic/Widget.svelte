@@ -1,5 +1,5 @@
 <script>
-  export let pl = '8px';
-  export let pr = '16px';
+  export let argA = '8px';
+  export let argB = '16px';
 </script>
-<p>i am a widget {pl} {pr}</p>
+<p>i am a widget {argA} {argB}</p>

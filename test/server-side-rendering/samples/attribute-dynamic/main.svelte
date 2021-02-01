@@ -2,8 +2,8 @@
   import Widget from './Widget.svelte';
 </script>
 
-<Widget pl={'aaa'} pr={'bbb'}>
-  <Widget pl={'a2'} pr={'b2'}>
+<Widget argA={'aaa'} argB={'bbb'}>
+  <Widget argA={'a2'} argB={'b2'}>
   </Widget>
 </Widget>
 
