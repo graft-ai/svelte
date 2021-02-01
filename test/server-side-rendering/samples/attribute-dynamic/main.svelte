@@ -1,6 +1,10 @@
 <script>
-	export let font;
-	export let color;
+  import Widget from './Widget.svelte';
 </script>
 
-<div style='font-family: {font}; color: {color};'>{color} {font}</div>
+<Widget pl={'aaa'} pr={'bbb'}>
+  <Widget pl={'a2'} pr={'b2'}>
+  </Widget>
+</Widget>
+
+<!-- <div style='font-family: {font}; color: {color};'>{color} {font}</div> -->

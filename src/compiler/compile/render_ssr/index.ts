@@ -14,6 +14,7 @@ export default function ssr(
 	component: Component,
 	options: CompileOptions
 ): {js: Node[]; css: CssResult} {
+  console.log({ component, options })
 	const renderer = new Renderer({
 		name: component.name
 	});
