@@ -1,12 +1,11 @@
 <script>
-  export let firstName = 'Cobra';
-  export let lastName = 'Kai';
+  export const color = 'black';
 </script>
 
 <style>
   p {
-    color: blue;
+    color: --color;
   }
 </style>
 
-<p>i am a widget {firstName} {lastName}</p>
+<p>i am a widget</p>

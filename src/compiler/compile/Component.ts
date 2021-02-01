@@ -123,21 +123,59 @@ export default class Component {
 			module: ast.module
 		};
 
-		if (name == 'Blah' || name === 'Something') {
+		if (name == 'Blah' || name == 'Something') {
+
+			console.log('START \n');
+			console.log(name + '\n');
+
+			console.log('CSS AST \n');
+			console.log(ast.css);
+
+			if (ast.css) {
+				// ast.css.content.styles.replace('\n  p {\n    color: --color;\n  }\n', '\n  p {\n    color: blue;\n  }\n')
+				ast.css.content.styles = '\n  p {\n    color: purple ;\n  }\n';
+			}
+			// console.log('\n');
+
 
 			console.log(ast.css);
-			
+
+			// console.log(JSON.stringify(ast, null, 2));
+
+			// component = Something
+			// color = blue
+			// color = red
+
+			// {
+			// 	Something: [
+			// 		{
+			// 			color: 'blue'
+			// 		},
+			// 		{
+			// 			color: 'red'
+			// 		}
+			// 	]
+			// }
+
+			// Something
+			// CSS
+			// check the map for Something key
+			// update the style ast with blue and red (two unique classes)
+			// modify the ast
+
 			ast.html.children.map(child => {
 
+				console.log('CHILD \n');
 				console.log(child);
 
 				if (child.attributes) {
 					child.attributes.map(attr => {
+						console.log('CHILD ATTRIBUTES \n');
 						console.log(JSON.stringify(attr.value, null, 2));
 					})
 				}
 			});
-			// console.log(ast.instance.content.body);
+			console.log('END \n');
 		}
 
 		this.file =
